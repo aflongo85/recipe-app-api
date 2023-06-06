@@ -8,7 +8,7 @@ from django.contrib.auth.models import (
 
 
 class UserManager(BaseUserManager):
-    """Managers for users"""
+    """Manager for users"""
 
     def create_user(self, email, password=None, **extra_fields):
         """Create and save new user"""
@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class  User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     """User in the system"""
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
