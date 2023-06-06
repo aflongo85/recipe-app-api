@@ -11,6 +11,7 @@ from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """Serializer for the user object."""
 
     class Meta:
         model = get_user_model()
@@ -54,7 +55,7 @@ class AuthTokenSerializer(serializers.Serializer):
             password=password
         )
         if not user:
-            msg = _('Unable to authenticate with providede credentials')
+            msg = _('Unable to authenticate with provided credentials')
             raise serializers.ValidationError(msg, code='authorization')
         
         attrs['user'] = user
